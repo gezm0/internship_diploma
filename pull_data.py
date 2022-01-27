@@ -5,7 +5,7 @@ import requests
 
 # request data through AIP section
 
-# where to get data
+# from where get data
 data_people = f"https://swapi.dev/api/people/"
 data_starships = f"https://swapi.dev/api/starships/"
 
@@ -29,6 +29,8 @@ def get_raw_sw_data_starships():
     return sw_data_starships
 print(get_raw_sw_data_starships())
 
+# todo
+# work with raw data
 
 # database section
 # define connection method
