@@ -1,4 +1,5 @@
-from unicodedata import name
+import json
+#from unicodedata import name
 import psycopg2
 import requests
 
@@ -13,16 +14,16 @@ data_people = f"https://swapi.dev/api/people/"
 data_starships = f"https://swapi.dev/api/starships/"
 
 def get_raw_people():
-    people = ''
+    #people = ''
     resp = requests.get(data_people_new)
     if resp.status_code == 200:
         people = resp.json()
     else:
-        print('None')
+        print('')
     return people
 
 def get_raw_starships():
-    starships = ''
+    #starships = ''
     resp = requests.get(data_starships_new)
     if resp.status_code == 200:
         starships = resp.json()
@@ -44,6 +45,10 @@ while person_num <= person_num_last:
         p_name = person[0]
         p_gender = person[1]
         p_homeworld = person[2]
+        name_homeworld = requests.get(p_homeworld)
+        name_homeworld = name_homeworld.text
+        p_homeworld = json.loads(name_homeworld)
+        p_homeworld = p_homeworld['name']
         p_starships = person[3]
         print(p_name, p_gender, p_homeworld, p_starships)
     except:
