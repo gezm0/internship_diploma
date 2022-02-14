@@ -53,7 +53,7 @@ while person_num <= person_num_last:
         print(p_name, p_gender, p_homeworld, p_starships)
     except:
         pass
-    person_num = person_num + 1
+    person_num += 1
 
 def pre_starships(raw_data):
     starship_name = raw_data['name']
@@ -73,7 +73,7 @@ while starship_num <= starship_num_last:
         print(s_name, s_model, s_manufacturer, s_cargo_capacity)
     except:
         pass
-    starship_num = starship_num + 1
+    starship_num += 1
 
 # todo
 # work with raw data
