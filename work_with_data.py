@@ -13,16 +13,13 @@ data_people = 'https://swapi.dev/api/people/'
 data_starships = 'https://swapi.dev/api/starships/'
 
 current_datetime = datetime.now()
-query_result = ()
-conn = ()
 
-db_host = '127.0.0.1'
-db_port = 5432
-db_dbname = 'test'
-db_user = 'test'
-db_password = 'test'
+conn = psycopg2.connect(host='localhost', 
+                        port="5432", 
+                        dbname='test', 
+                        user='test', 
+                        password='test')
 
-#conn = psycopg2.connect(host=db_host, port=db_port, dbname=db_dbname, user=db_user, password=db_password)
 cursor = conn.cursor()
 
 while person_num <= person_num_last:
@@ -35,9 +32,14 @@ while person_num <= person_num_last:
         person_homeworld = requests.get(person_homeworld).json()
         person_homeworld = person_homeworld['name']
         person_starships = people['starships']
-        print(person_name, person_gender, person_homeworld, person_starships)
+        fill_table_people = f"INSERT INTO people (name, gender, homeworld, starships) VALUES ({person_name}, {person_gender}, {person_homeworld}, {person_starships});"
+        cursor.execute(fill_table_people)
+        conn.commit()
+
     except:
         pass
+  
+    print(f"Person record number {person_num} inserted successfully")
     person_num += 1
 
 while starship_num <= starship_num_last:
@@ -48,9 +50,13 @@ while starship_num <= starship_num_last:
         starship_model = ships['model']
         starship_manufacturer = ships['manufacturer']
         starship_cargo_capacity = ships['cargo_capacity']
-        print(starship_name, starship_model, starship_manufacturer, starship_cargo_capacity)
+        fill_table_starships = f"INSERT INTO starships (name, model, manufacturer, cargo_capacity, ship_id) VALUES ({starship_name}, {starship_model}, {starship_manufacturer}, {starship_cargo_capacity}, {starship_num});"
+        cursor.execute(fill_table_starships)
+        conn.commit()
     except:
         pass
+
+    print(f"Ship record number {starship_num} inserted successfully")
     starship_num += 1
 
 if conn:
