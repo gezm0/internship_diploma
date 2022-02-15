@@ -9,7 +9,7 @@
 - Filling data cells by data from previous iteration.
 
 <b>TODO:</b>
-- To create table for linking starships and persons..
+- To create table for linking starships and persons.
 - To write query to display output.
 - Add flask support to display output.
 
