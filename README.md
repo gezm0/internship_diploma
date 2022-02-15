@@ -13,7 +13,7 @@
 - Add flask support to display output.
 
 <b><i>Contents:</i></b>
-- <b>create_db.py</b> script for creating databases.
+- <b>create_db.py</b> script for creating tables in database.
 - <b>db_check.py</b> script for checking something in database.
 - <b>people.json</b> json structure for 'people' reply.
 - <b>ships.json</b> json structure for 'starships' reply.
