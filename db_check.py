@@ -15,12 +15,12 @@ cursor = conn.cursor()
 
 print("Database opened successfully")
 
-name='123'
-gender='123'
-homeworld='123'
-starships='123'
+name='ilon'
+gender='male'
+homeworld='mars'
+starships='BFR'
 
-fill_table_people = f"INSERT INTO people (name, gender, homeworld, starships) VALUES ({name}, {gender}, {homeworld}, {starships});"
+fill_table_people = (f"INSERT INTO people (name, gender, homeworld, starships) VALUES ('{name}', '{gender}', '{homeworld}', '{starships}');")
 cursor.execute(fill_table_people)
 conn.commit()
 

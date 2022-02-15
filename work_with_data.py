@@ -32,7 +32,7 @@ while person_num <= person_num_last:
         person_homeworld = requests.get(person_homeworld).json()
         person_homeworld = person_homeworld['name']
         person_starships = people['starships']
-        fill_table_people = f"INSERT INTO people (name, gender, homeworld, starships) VALUES ({person_name}, {person_gender}, {person_homeworld}, {person_starships});"
+        fill_table_people = (f"INSERT INTO people (name, gender, homeworld, starships) VALUES ('{person_name}', '{person_gender}', '{person_homeworld}', '{person_starships}');")
         cursor.execute(fill_table_people)
         conn.commit()
 
@@ -50,7 +50,7 @@ while starship_num <= starship_num_last:
         starship_model = ships['model']
         starship_manufacturer = ships['manufacturer']
         starship_cargo_capacity = ships['cargo_capacity']
-        fill_table_starships = f"INSERT INTO starships (name, model, manufacturer, cargo_capacity, ship_id) VALUES ({starship_name}, {starship_model}, {starship_manufacturer}, {starship_cargo_capacity}, {starship_num});"
+        fill_table_starships = (f"INSERT INTO starships (name, model, manufacturer, cargo_capacity, ship_id) VALUES ('{starship_name}', '{starship_model}', '{starship_manufacturer}', '{starship_cargo_capacity}', '{starship_num}');")
         cursor.execute(fill_table_starships)
         conn.commit()
     except:
