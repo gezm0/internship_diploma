@@ -1,12 +1,12 @@
 <h1>DevOps internship dimploma</h1>
 
 <b>Known problems:</b>
-- https://swapi.dev/ sometimes return 'ERROR 404' because of missing persons (i.e. https://swapi.dev/api/people/17) and ships (i.e. https://swapi.dev/api/starships/1/).
+<s>- https://swapi.dev/ sometimes return 'ERROR 404' because of missing persons (i.e. https://swapi.dev/api/people/17) and ships (i.e. https://swapi.dev/api/starships/1/).</s>
 - Some persons have more than one starship (i.e. https://swapi.dev/api/people/10 have 5 starships).
 
 <b>Known bugs:</b>
-- Empty lines processing.
-- Filling data cells by data from previous iteration.
+<s>- Empty lines processing.</s>
+<s>- Filling data cells by data from previous iteration.</s>
 
 <b>TODO:</b>
 - To create table for linking starships and persons.
