@@ -18,4 +18,5 @@
 - <b>db_check.py</b> script for checking something in database.
 - <b>people.json</b> json structure for 'people' reply.
 - <b>ships.json</b> json structure for 'starships' reply.
+- <b>test.py</b> script for testing new features and significant code change.
 - <b>work_with_data.py</b> main script for retrieving data from site and pushing them to database.
