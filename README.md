@@ -9,8 +9,9 @@
 - <s>Filling data cells by data from previous iteration.</s>
 
 <b>TODO:</b>
-- To create table for linking starships and persons.
-- To write query to display output.
+- Fill 'ships_id' column with ships_id_list.
+- Create table for linking starships and persons.
+- Write query to display output.
 - Add flask support to display output.
 
 <b><i>Contents:</i></b>
