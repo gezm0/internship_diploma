@@ -2,7 +2,6 @@ import psycopg2
 from psycopg2 import Error
 from datetime import datetime
 
-current_datetime = datetime.now()
 query_result = ()
 
 try:
@@ -15,7 +14,7 @@ try:
     cursor = conn.cursor()
     
     create_table_people = ('''CREATE TABLE people (id SERIAL PRIMARY KEY NOT NULL, name VARCHAR (255) NOT NULL, 
-                            gender VARCHAR (50), homeworld VARCHAR (100), starships VARCHAR);''')
+                            gender VARCHAR (50), homeworld VARCHAR (100), ships_id VARCHAR);''')
 
     cursor.execute(create_table_people)
 
@@ -38,4 +37,4 @@ finally:
     if conn:
         cursor.close()
         conn.close()
-        print(f"PostgreSQL connection is closed at {current_datetime}")
+        print(f"PostgreSQL connection is closed at {datetime.now()}")

@@ -1,22 +1,14 @@
-from unittest import skip
 import requests
 import psycopg2
 from datetime import datetime
 
 person_num = 1
-person_num_last = 90
+person_num_last = 85
 starship_num = 1
-starship_num_last = 100
-
-starship_name = ''
-starship_model = ''
-starship_manufacturer = ''
-starship_cargo_capacity = ''
+starship_num_last = 80
 
 data_people = 'https://swapi.dev/api/people/'
 data_starships = 'https://swapi.dev/api/starships/'
-
-current_datetime = datetime.now()
 
 conn = psycopg2.connect(host='localhost', 
                         port="5432", 
@@ -32,7 +24,9 @@ while person_num <= person_num_last:
 
         resp = requests.get(data_people_new)
         if resp.status_code == 200:
-
+            
+            ships_id_list = []
+            ship_id = ''
             people = requests.get(data_people_new).json()
             person_name = people['name']
             person_gender = people['gender']
@@ -41,7 +35,13 @@ while person_num <= person_num_last:
             person_homeworld = person_homeworld['name']
             person_starships = people['starships']
 
-            fill_table_people = f"INSERT INTO people (name, gender, homeworld) VALUES ('{person_name}', '{person_gender}', '{person_homeworld}');"
+            for person_starship in person_starships:
+                person_starship = requests.get(person_starship).json()
+                ship_id = person_starship['url'].strip('/').split('/')[-1]
+                person_starship_name = person_starship['name']
+                ships_id_list.append(ship_id)
+
+            fill_table_people = f"INSERT INTO people (name, gender, homeworld, ships_id) VALUES ('{person_name}', '{person_gender}', '{person_homeworld}', '{ship_id}');"
             cursor.execute(fill_table_people)
             print(f"Person record number {person_num} inserted successfully")
 
@@ -54,7 +54,7 @@ while person_num <= person_num_last:
     person_num += 1
 
 conn.commit()
-print('Data to table "people" are successfully commited')
+print(f"Data to table 'people' are successfully commited at {datetime.now()}")
 
 while starship_num <= starship_num_last:
     try:
@@ -81,9 +81,9 @@ while starship_num <= starship_num_last:
     starship_num += 1
 
 conn.commit()
-print('Data to table "starships" are successfully commited')
+print(f"Data to table 'starships' are successfully commited at {datetime.now()}")
 
 if conn:
     cursor.close()
     conn.close()
-    print(f"PostgreSQL connection is closed at {current_datetime}")
+    print(f"PostgreSQL connection is closed at {datetime.now()}")
