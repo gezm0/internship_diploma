@@ -18,6 +18,8 @@ conn = psycopg2.connect(host='localhost',
 
 cursor = conn.cursor()
 
+print(f"Started at {datetime.now()}")
+
 while person_num <= person_num_last:
     try:
         data_people_new = data_people + str(person_num)
@@ -40,9 +42,11 @@ while person_num <= person_num_last:
                 ship_id = person_starship['url'].strip('/').split('/')[-1]
                 person_starship_name = person_starship['name']
                 ships_id_list.append(ship_id)
+            
+            fill_table_people = "INSERT INTO people (name, gender, homeworld, ships_id) VALUES (%s, %s, %s, %s)"
+            vars_persons = [person_name, person_gender, person_homeworld, ', '.join(ships_id_list)]
+            cursor.execute(fill_table_people, vars_persons)
 
-            fill_table_people = f"INSERT INTO people (name, gender, homeworld, ships_id) VALUES ('{person_name}', '{person_gender}', '{person_homeworld}', '{ship_id}');"
-            cursor.execute(fill_table_people)
             print(f"Person record number {person_num} inserted successfully")
 
         else:
@@ -69,8 +73,9 @@ while starship_num <= starship_num_last:
             starship_manufacturer = ships['manufacturer']
             starship_cargo_capacity = ships['cargo_capacity']
 
-            fill_table_starships = f"INSERT INTO starships (name, model, manufacturer, cargo_capacity, ship_id) VALUES ('{starship_name}', '{starship_model}', '{starship_manufacturer}', '{starship_cargo_capacity}', '{starship_num}');"
-            cursor.execute(fill_table_starships)
+            fill_table_starships = "INSERT INTO starships (name, model, manufacturer, cargo_capacity, ship_id) VALUES (%s, %s, %s, %s, %s)"
+            vars_starships = [starship_name, starship_model, starship_manufacturer, starship_cargo_capacity, starship_num]
+            cursor.execute(fill_table_starships, vars_starships)
             print(f"Ship record number {starship_num} inserted successfully")
 
         else:

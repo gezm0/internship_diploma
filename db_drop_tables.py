@@ -13,16 +13,12 @@ conn = psycopg2.connect(
 
 cursor = conn.cursor()
 
-print("Database opened successfully")
+list_tables = ['people', 'starships', 'persons_with_starships']
+for table_to_drop in list_tables:
 
-name='ilon'
-gender='male'
-homeworld='mars'
-starships='BFR'
-
-fill_table_people = (f"INSERT INTO people (name, gender, homeworld, starships) VALUES ('{name}', '{gender}', '{homeworld}', '{starships}');")
-cursor.execute(fill_table_people)
-conn.commit()
+  drop_table = (f"DROP table {table_to_drop};")
+  cursor.execute(drop_table)
+  conn.commit()
 
 cursor.close()
 conn.close()
