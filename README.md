@@ -22,4 +22,4 @@
 - <b>ships.json</b> json structure for 'starships' reply.
 - <b>test.py</b> script for testing new features and significant code change.
 - <b>work_with_data.py</b> main script for retrieving data from site and pushing them to database.
-- <b colour=green>work_with_data_new.py</b> Last version of main script for retrieving data from site and pushing them to database.
+- <b>work_with_data_new.py</b> Last version of main script for retrieving data from site and pushing them to database.
