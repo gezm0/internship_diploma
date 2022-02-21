@@ -10,7 +10,7 @@
 
 <b>TODO:</b>
 - <s>Fill 'ships_id' column with ships_id_list.</s>
-- Create table for linking starships and persons.
+- Rework script for separate person lines with each starship (not several ships in one person line).
 - Write query to display output.
 - Add flask support to display output.
 
