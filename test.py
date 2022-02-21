@@ -1,40 +1,51 @@
-from asyncio.windows_events import NULL
 import requests
+import psycopg2
 from datetime import datetime
 
-person_num = 1
-person_num_last = 10
+starship_num = 1
+starship_num_last = 80
 
-data_people = 'https://swapi.dev/api/people/'
+data_starships = 'https://swapi.dev/api/starships/'
 
-while person_num <= person_num_last:
+conn = psycopg2.connect(host='localhost', 
+                        port="5432", 
+                        dbname='test', 
+                        user='test', 
+                        password='test')
+
+cursor = conn.cursor()
+
+while starship_num <= starship_num_last:
     try:
-        data_people_new = data_people + str(person_num)
+        data_starships_new = data_starships + str(starship_num)
 
-        resp = requests.get(data_people_new)
+        resp = requests.get(data_starships_new)
         if resp.status_code == 200:
 
-            people = requests.get(data_people_new).json()
-            person_name = people['name']
-            person_gender = people['gender']
-            person_homeworld = people['homeworld']
-            person_homeworld = requests.get(person_homeworld).json()
-            person_homeworld = person_homeworld['name']
-            person_starships = people['starships']
-            ship_id_list = []
+            ships = requests.get(data_starships_new).json()
+            starship_name = ships['name']
+            starship_model = ships['model']
+            starship_manufacturer = ships['manufacturer']
+            starship_cargo_capacity = ships['cargo_capacity']
 
-            for person_starship in person_starships:
-                person_starship = requests.get(person_starship).json()
-                ship_id = person_starship['url'].strip('/').split('/')[-1]
-                person_starship_name = person_starship['name']
-                ship_id_list.append(ship_id)
+            if starship_cargo_capacity == 'unknown':
+                starship_cargo_capacity = '0'
+            else:
+                pass
 
-            print(person_name, person_gender, person_homeworld, ship_id_list)
+            starship_cargo_capacity = int(starship_cargo_capacity)
+            fill_table_starships = "INSERT INTO starships (name, model, manufacturer, cargo_capacity, ship_id) VALUES (%s, %s, %s, %s, %s)"
+            vars_starships = [starship_name, starship_model, starship_manufacturer, starship_cargo_capacity, starship_num]
+            cursor.execute(fill_table_starships, vars_starships)
+            print(starship_name, starship_model, starship_manufacturer, starship_cargo_capacity, starship_num)
+            print(f"Ship record number {starship_num} inserted successfully")
 
         else:
             pass
-
     except:
         pass
 
-    person_num += 1
+    starship_num += 1
+
+conn.commit()
+print(f"Data to table 'starships' are successfully commited at {datetime.now()}")

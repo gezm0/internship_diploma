@@ -14,17 +14,17 @@ try:
     cursor = conn.cursor()
     
     create_table_people = ('''CREATE TABLE people (id SERIAL PRIMARY KEY NOT NULL, name VARCHAR (255) NOT NULL, 
-                            gender VARCHAR (50), homeworld VARCHAR (100), ships_id VARCHAR);''')
+                            gender VARCHAR (50), homeworld VARCHAR (100), ships_id VARCHAR (255));''')
 
     cursor.execute(create_table_people)
 
     create_table_starships = ('''CREATE TABLE starships (id SERIAL PRIMARY KEY NOT NULL, name VARCHAR (255) NOT NULL, model 
-                            VARCHAR (255), manufacturer VARCHAR (255), cargo_capacity VARCHAR (255), ship_id VARCHAR (255));''')
+                            VARCHAR (255), manufacturer VARCHAR (255), cargo_capacity bigint, ship_id INT);''')
 
     cursor.execute(create_table_starships)
 
     create_table_persons_with_starships = ('''CREATE TABLE persons_with_starships (id SERIAL PRIMARY KEY NOT NULL, 
-                            person_name VARCHAR (255) NOT NULL, ship_id VARCHAR (255) NOT NULL);''')
+                            name VARCHAR (255) NOT NULL, gender VARCHAR (50), homeworld VARCHAR (100), ships_id INT);''')
 
     cursor.execute(create_table_persons_with_starships)
 
