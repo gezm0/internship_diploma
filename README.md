@@ -1,6 +1,6 @@
 <h1>DevOps internship dimploma</h1>
 
-<b>Current status:</b><br>
+<b>Current status:</b><br><br>
 Ready to start phase display result through web-server.
 
 <b>Known problems:</b>
