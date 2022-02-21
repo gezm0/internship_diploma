@@ -1,7 +1,7 @@
 <h1>DevOps internship dimploma</h1>
 
 <b>Current status:</b><br><br>
-Ready to start phase display result through web-server.<br>
+Ready to start phase display result through web-server.<br><br>
 
 <b>Known problems:</b>
 - <s>https://swapi.dev/ sometimes return 'ERROR 404' because of missing persons (i.e. https://swapi.dev/api/people/17) and ships (i.e. https://swapi.dev/api/starships/1/).</s>
