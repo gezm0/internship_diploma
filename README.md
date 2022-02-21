@@ -10,14 +10,16 @@
 
 <b>TODO:</b>
 - <s>Fill 'ships_id' column with ships_id_list.</s>
-- Rework script for separate person lines with each starship (not several ships in one person line).
-- Write query to display output.
+- <s>Rework script for separate person lines with each starship (not several ships in one person line).</s>
+- <s>Write query to display output.</s>
 - Add flask support to display output.
 
 <b><i>Contents:</i></b>
 - <b>db_create_tables.py</b> script for creating tables in database.
 - <b>db_drop_tables.py</b> script for deleting tables in database.
 - <b>people.json</b> json structure for 'people' reply.
+- <b>script_output.py</b> Script with query to display desired output.
 - <b>ships.json</b> json structure for 'starships' reply.
 - <b>test.py</b> script for testing new features and significant code change.
 - <b>work_with_data.py</b> main script for retrieving data from site and pushing them to database.
+- <b>work_with_data_new.py</b> Last version of main script for retrieving data from site and pushing them to database.
