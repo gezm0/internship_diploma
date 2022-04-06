@@ -15,6 +15,7 @@ Ready to start phase display result through web-server.<br><br>
 - <s>Fill 'ships_id' column with ships_id_list.</s>
 - <s>Rework script for separate person lines with each starship (not several ships in one person line).</s>
 - <s>Write query to display output.</s>
+- Maby split tasks of pulling data about ships and persons to different scripts. 
 - Add flask support to display output.
 
 <b><i>Contents:</i></b>
