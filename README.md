@@ -10,6 +10,7 @@ Ready to start phase display result through web-server.<br><br>
 <b>Known bugs:</b>
 - <s>Empty lines processing.</s>
 - <s>Filling data cells by data from previous iteration.</s>
+- Inefficient ugly SQL query with not quite desired result. Need to rework with joins using, but at the end after all necessary diploma stages.
 
 <b>TODO:</b>
 - <s>Fill 'ships_id' column with ships_id_list.</s>
