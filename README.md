@@ -16,6 +16,7 @@ Ready to start phase display result through web-server.<br><br>
 - <s>Rework script for separate person lines with each starship (not several ships in one person line).</s>
 - <s>Write query to display output.</s>
 - Maby split tasks of pulling data about ships and persons to different scripts. 
+- Clean out repo a bit.
 - Add flask support to display output.
 
 <b><i>Contents:</i></b>
