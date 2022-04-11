@@ -10,4 +10,4 @@ export TF_VAR_db_password="demo_password"
 $env:TF_VAR_db_user="demo_user"<br>
 $env:TF_VAR_db_password="demo_password"<br>
 <br>
-Or you can type them manually while applying Terraform manifest.
+You can export those data as environment variables or you can type them manually while applying Terraform manifest.
