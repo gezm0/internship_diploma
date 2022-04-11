@@ -11,3 +11,6 @@ $env:TF_VAR_db_user="demo_user"<br>
 $env:TF_VAR_db_password="demo_password"<br>
 <br>
 You can export those data as environment variables or you can type them manually while applying Terraform manifest.
+
+# Need to fix:
+- Security groups to prevent possible undesirable access.
