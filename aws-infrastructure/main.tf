@@ -64,7 +64,7 @@ resource "aws_security_group" "diploma_database_sg" {
 ### cluster ###
 
 resource "aws_eks_cluster" "diploma" {
-  name     = "eks-cluster-diploma"
+  name     = var.cluster_name
   role_arn = aws_iam_role.diploma.arn
   enabled_cluster_log_types = ["api", "audit"]
 
@@ -81,7 +81,7 @@ resource "aws_eks_cluster" "diploma" {
 ### cluster role ###
 
 resource "aws_iam_role" "diploma" {
-  name = "eks-cluster-diploma"
+  name = var.cluster_name
 
   assume_role_policy = <<POLICY
 {
