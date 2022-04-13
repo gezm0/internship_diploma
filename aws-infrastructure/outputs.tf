@@ -9,3 +9,7 @@ output "kubeconfig-certificate-authority-data" {
 output "database-address" {
   value = aws_db_instance.diploma_database.address
 }
+
+output "registry-id" {
+  value = aws_ecr_repository.diploma.id
+}

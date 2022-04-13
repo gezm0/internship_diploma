@@ -40,10 +40,10 @@ resource "aws_db_instance" "diploma_database" {
 }
 
 resource "aws_security_group" "diploma_database_sg" {
-    name = "Database Diploma SG"
+    name        = "Database Diploma SG"
     description = "Internship DevOps Diploma Database SG"
     tags = {
-        "Name" = "Diploma DB SG"
+        "Name"  = "Diploma DB SG"
     }
 
     ingress {
@@ -64,8 +64,8 @@ resource "aws_security_group" "diploma_database_sg" {
 ### cluster ###
 
 resource "aws_eks_cluster" "diploma" {
-  name     = var.cluster_name
-  role_arn = aws_iam_role.diploma.arn
+  name                      = var.cluster_name
+  role_arn                  = aws_iam_role.diploma.arn
   enabled_cluster_log_types = ["api", "audit"]
 
   vpc_config {
@@ -136,11 +136,11 @@ resource "aws_iam_role" "diploma_node_group" {
   name = "eks-node-group-diploma"
 
   assume_role_policy = jsonencode({
-    Statement = [{
-      Action = "sts:AssumeRole"
-      Effect = "Allow"
-      Principal = {
-        Service = "ec2.amazonaws.com"
+    Statement        = [{
+      Action         = "sts:AssumeRole"
+      Effect         = "Allow"
+      Principal      = {
+        Service      = "ec2.amazonaws.com"
       }
     }]
     Version = "2012-10-17"
@@ -160,4 +160,15 @@ resource "aws_iam_role_policy_attachment" "diploma-AmazonEKS_CNI_Policy" {
 resource "aws_iam_role_policy_attachment" "diploma-AmazonEC2ContainerRegistryReadOnly" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
   role       = aws_iam_role.diploma_node_group.name
+}
+
+### ECR creation ###
+
+resource "aws_ecr_repository" "diploma" {
+  name                 = "diploma_registry"
+  image_tag_mutability = "MUTABLE"
+
+  image_scanning_configuration {
+    scan_on_push = true
+  }
 }
