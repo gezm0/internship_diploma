@@ -1,4 +1,4 @@
-# AWS IaC (RDS and EKS) throgh Terraform
+# AWS IaC (RDS and EKS) through Terraform
 
 Current downside of this solution is Subnets hardcoding.<br>
 Because of I consider database username and password as sensitive data, those data transferring as environment variables. In my case they storing in <b><i>secrets</i></b> file in repo but this file added to <b><i>.cvsignore</i></b> to prevent sensitive data leak. Content of this file is something like this (depends on OS):
