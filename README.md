@@ -26,6 +26,7 @@ Ready to start phase display result through web-server.<br><br>
 - <b>app_infra</b> directory with service apps for deployment (for create and delete database schemas)
 - <b>aws_infrastructure</b> directory with Terraform manifests for AWS infrastructure deployment
 - <b>k8s</b> directory with Kubernetes manifests for K8S infrastructure deployment
+<br>
 - <b>db_create_tables.py</b> script for creating tables in database.
 - <b>db_drop_tables.py</b> script for deleting tables in database.
 - <b>people.json</b> json structure for 'people' reply.
