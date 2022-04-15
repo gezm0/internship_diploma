@@ -29,3 +29,10 @@ Ready to start phase display result through web-server.<br><br>
 - <b>test.py</b> script for testing new features and significant code change.
 - <b>work_with_data.py</b> main script for retrieving data from site and pushing them to database.
 - <b>work_with_data_new.py</b> Last version of main script for retrieving data from site and pushing them to database.
+# Variables:
+Through variables for AWS and K8S infrastructure:<br><br>
+<b>TF_VAR_db_user</b> for database user.<br>
+<b>TF_VAR_db_password</b> for database password.<br>
+<b>TF_VAR_db_name</b> for database name.<br>
+<b>db_host</b> for database endpoint (host).<br><br>
+More information <a href="https://github.com/gezm0/internship_diploma/tree/main/aws-infrastructure#readme">here</a>.
