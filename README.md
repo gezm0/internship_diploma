@@ -30,7 +30,7 @@ Ready to start phase display result through web-server.<br><br>
 - <b>work_with_data.py</b> main script for retrieving data from site and pushing them to database.
 - <b>work_with_data_new.py</b> Last version of main script for retrieving data from site and pushing them to database.
 # Variables:
-Through variables (AWS and K8S infrastructure):<br>
+Through variables for AWS and K8S infrastructure:<br><br>
 <b>TF_VAR_db_user</b> for database user.<br>
 <b>TF_VAR_db_password</b> for database password.<br>
 <b>TF_VAR_db_name</b> for database name.<br>
