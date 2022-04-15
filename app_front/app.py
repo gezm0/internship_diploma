@@ -4,14 +4,6 @@ import os
 import psycopg2
 from flask import Flask, render_template
 
-select_output = '''
-    select persons_with_starships.name, persons_with_starships.gender, persons_with_starships.homeworld, starships.name, 
-    starships.model, starships.cargo_capacity from persons_with_starships, starships 
-    where persons_with_starships.ships_id=starships.ship_id 
-    order by starships.cargo_capacity desc 
-    limit 10;
-    '''
-
 app = Flask(__name__)
 
 def get_db_connection():
@@ -27,12 +19,11 @@ def get_db_connection():
 def index():
     conn = get_db_connection()
     cur = conn.cursor()
-    cur.execute(select_output)
+    cur.execute("select name, gender, homeworld, ship_model, ship_manufacturer, cargo_capacity from persons limit 10;")
     persons = cur.fetchall()
     cur.close()
     conn.close()
-    return render_template('index.html', person=persons[0], gender=persons[1], homeworld=persons[2], 
-                            ship_name=persons[3], ship_model=persons[4], ship_cargo=persons[5])
+    return render_template('index.html', persons=persons)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')

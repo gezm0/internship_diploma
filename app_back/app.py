@@ -97,6 +97,17 @@ conn.commit()
 print(f"Data to table 'starships' are successfully commited at {datetime.now()}")
 print("")
 
+persons_create_table = '''
+    INSERT INTO persons (name, gender, homeworld, ship_model, ship_manufacturer, cargo_capacity)
+    SELECT persons_with_starships.name, persons_with_starships.gender, persons_with_starships.homeworld, 
+    starships.name, starships.model, starships.cargo_capacity 
+    FROM persons_with_starships, starships 
+    WHERE persons_with_starships.ships_id=starships.ship_id order by starships.cargo_capacity desc;
+    '''
+cursor.execute(persons_create_table)
+conn.commit()
+print(f"Table 'persons' was filled successfully at {datetime.now()}")
+
 if conn:
     cursor.close()
     conn.close()

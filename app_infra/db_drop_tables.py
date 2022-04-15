@@ -13,7 +13,7 @@ conn = psycopg2.connect(
 
 cursor = conn.cursor()
 
-list_tables = ['starships', 'persons_with_starships']
+list_tables = ['starships', 'persons_with_starships', 'persons']
 for table_to_drop in list_tables:
 
   drop_table = (f"DROP table {table_to_drop};")

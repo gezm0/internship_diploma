@@ -1,10 +1,33 @@
-<html><body>
-<tr>
-<td>{{ person }}</td>
-<td>{{ gender }}</td>
-<td>{{ homeworld }}</td>
-<td>{{ ship_name }}</td>
-<td>{{ ship_model }}</td>
-<td>{{ ship_cargo }}</td>
-</tr>
-</body></html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+<title>Articles</title>
+</head>
+<body bgcolor="DarkSlateGray">
+<center>
+    <table border="2">
+        <tr>
+            <th><center>Name</center></th>
+            <th><center>Gender</center></th>
+            <th><center>homeworld</center></th>
+            <th><center>Ship model</center></th>
+            <th><center>Ship manufacturer</center></th>
+            <th><center>Cargo capacity</center></th>
+        </tr>
+
+        {% for person in persons %}
+        <tr>
+            <td>{{ person[0] }}</td>
+            <td>{{ person[1] }}</td>
+            <td>{{ person[2] }}</td>
+            <td>{{ person[3] }}</td>
+            <td>{{ person[4] }}</td>
+            <td>{{ person[5] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+</body>
+</html>

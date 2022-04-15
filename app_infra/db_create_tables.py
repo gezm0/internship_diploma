@@ -29,6 +29,13 @@ try:
     cursor.execute(create_table_persons_with_starships)
     print(f"Table 'persons_with_starships' created successfully at {datetime.now()}")
 
+    create_table_persons = ('''CREATE TABLE persons (id SERIAL PRIMARY KEY NOT NULL, 
+                            name VARCHAR (255) NOT NULL, gender VARCHAR (50), homeworld VARCHAR (100), ship_model 
+                            VARCHAR (255), ship_manufacturer VARCHAR (255), cargo_capacity bigint);''')
+
+    cursor.execute(create_table_persons)
+    print(f"Table 'persons' created successfully at {datetime.now()}")
+
     conn.commit()
 
 except (Exception, Error) as error:
