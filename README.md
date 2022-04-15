@@ -1,7 +1,8 @@
 <h1>DevOps internship dimploma</h1>
 
 <b>Current status:</b><br><br>
-Ready to start phase display result through web-server.<br><br>
+Application part. Ready to start phase display result through web-server.<br>
+Infrastructure part. Dockerfiles almost ready for deployment. Docker images building successfully. Need to solve issue with passing environment variables to runtime. <br><br>
 
 <b>Known problems:</b>
 - <s>https://swapi.dev/ sometimes return 'ERROR 404' because of missing persons (i.e. https://swapi.dev/api/people/17) and ships (i.e. https://swapi.dev/api/starships/1/).</s>
