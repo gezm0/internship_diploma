@@ -11,15 +11,15 @@ Infrastructure part. Dockerfiles almost ready for deployment. Docker images are 
 <b>Known bugs:</b>
 - <s>Empty lines processing.</s>
 - <s>Filling data cells by data from previous iteration.</s>
-- <s>Inefficient ugly SQL query with not quite desired result. Need to rework with joins using, but at the end after all necessary diploma stages.</s> Just added another complete table.
+- <s>Inefficient ugly SQL query with not quite desired result. Need to rework with joins using, but at the end after all necessary diploma stages.</s> Just added another complete table. Result is still a bit undesirable.
 
 <b>TODO:</b>
 - <s>Fill 'ships_id' column with ships_id_list.</s>
 - <s>Rework script for separate person lines with each starship (not several ships in one person line).</s>
 - <s>Write query to display output.</s>
 - Maby split tasks of pulling data about ships and persons to different scripts. 
-- Clean out repo a bit.
-- Add flask support to display output.
+- <s>Clean out repo a bit.</s> I was reorganized hierarchy a bit.
+- <s>Add flask support to display output.</s>
 
 <b><i>Contents:</i></b>
 - <b>app_back</b> directory with backend app for deployment
