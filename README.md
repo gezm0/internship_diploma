@@ -26,15 +26,14 @@ Ready to start phase display result through web-server.<br><br>
 - <b>app_infra</b> directory with service apps for deployment (for create and delete database schemas)
 - <b>aws_infrastructure</b> directory with Terraform manifests for AWS infrastructure deployment
 - <b>k8s</b> directory with Kubernetes manifests for K8S infrastructure deployment
-<br>
-- <b>db_create_tables.py</b> script for creating tables in database.
-- <b>db_drop_tables.py</b> script for deleting tables in database.
-- <b>people.json</b> json structure for 'people' reply.
-- <b>script_output.py</b> Script with query to display desired output.
-- <b>ships.json</b> json structure for 'starships' reply.
-- <b>test.py</b> script for testing new features and significant code change.
-- <b>work_with_data.py</b> main script for retrieving data from site and pushing them to database.
-- <b>work_with_data_new.py</b> Last version of main script for retrieving data from site and pushing them to database.
+- <i>db_create_tables.py</i> script for creating tables in database.
+- <i>db_drop_tables.py</i> script for deleting tables in database.
+- <i>people.json</i> json structure for 'people' reply.
+- <i>script_output.py</i> Script with query to display desired output.
+- <i>ships.json</i> json structure for 'starships' reply.
+- <i>test.py</i> script for testing new features and significant code change.
+- <i>work_with_data.py</i> main script for retrieving data from site and pushing them to database.
+- <i>work_with_data_new.py</i> Last version of main script for retrieving data from site and pushing them to database.
 # Variables:
 Through variables for AWS and K8S infrastructure:<br><br>
 <b>TF_VAR_db_user</b> for database user.<br>
