@@ -17,6 +17,13 @@ variable "db_name" {
 }
 
 variable "cluster_name" {
-  default = "eks-cluster-diploma"
-  type    = string
+    description = "EKS cluster name"
+    default = "eks-cluster-diploma"
+    type    = string
+}
+
+variable "ecr_repo_name" {
+    description = "ECR repository name"
+    default = "diploma_registry"
+    type    = string
 }
