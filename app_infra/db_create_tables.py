@@ -5,20 +5,15 @@ import os
 from psycopg2 import Error
 from datetime import datetime
 
-# variables for connection passed through environment variables
-this_db_user = os.environ["TF_VAR_db_user"]
-this_db_password = os.environ["TF_VAR_db_password"]
-this_db_name = os.environ["TF_VAR_db_name"]
-this_db_host = os.environ["db_host"]
-
 query_result = ()
 
 try:
-    conn = psycopg2.connect(host=this_db_host, 
-                        port="5432", 
-                        dbname=this_db_name, 
-                        user=this_db_user, 
-                        password=this_db_password)
+    conn = psycopg2.connect(
+        database=os.environ["TF_VAR_db_name"], 
+        user=os.environ["TF_VAR_db_user"], 
+        password=os.environ["TF_VAR_db_password"], 
+        host=os.environ["db_host"], 
+        port="5432")
 
     cursor = conn.cursor()
     
