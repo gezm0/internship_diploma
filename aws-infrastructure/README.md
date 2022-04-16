@@ -13,7 +13,7 @@ $env:TF_VAR_db_user="test"<br>
 $env:TF_VAR_db_password="test"<br>
 $env:TF_VAR_db_name="test"<br>
 $env:db_host="localhost"<br><br>
-You can export those data as environment variables or you can type them manually while applying Terraform manifest.
+You can export necessary variables as environment variables or you can type them manually while applying Terraform manifest.
 
 # Need to fix
 - <s>Security groups to prevent possible undesirable access.</s> RDS endpoint located inside local subnet and has no access outside as vice versa (checked).
