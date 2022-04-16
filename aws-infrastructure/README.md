@@ -12,7 +12,7 @@ export db_host="localhost"<br>
 $env:TF_VAR_db_user="test"<br>
 $env:TF_VAR_db_password="test"<br>
 $env:TF_VAR_db_name="test"<br>
-$env:db_host="localhost"<br>
+$env:db_host="localhost"<br><br>
 You can export those data as environment variables or you can type them manually while applying Terraform manifest.
 
 # Need to fix
