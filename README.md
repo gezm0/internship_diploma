@@ -1,8 +1,10 @@
 <h1>DevOps internship dimploma</h1>
 
 <b>Current status:</b><br><br>
-Application part. Ready to start phase display result through web-server.<br>
-Infrastructure part. Dockerfiles almost ready for deployment. Docker images building successfully. Need to solve issue with passing environment variables to runtime. <br><br>
+Application part. Web service ready.<br>
+Infrastructure part. Dockerfiles almost ready for deployment. Docker images are building successfully. Need to solve issue with passing environment variables to runtime. <br>
+Images builded and tested.<br><br>
+![Screenshot 2022-04-17 022850](https://user-images.githubusercontent.com/94368360/163694254-d47b2a73-ea20-4d97-86b5-c8a6be06194a.png)
 
 <b>Known problems:</b>
 - <s>https://swapi.dev/ sometimes return 'ERROR 404' because of missing persons (i.e. https://swapi.dev/api/people/17) and ships (i.e. https://swapi.dev/api/starships/1/).</s>
@@ -11,15 +13,15 @@ Infrastructure part. Dockerfiles almost ready for deployment. Docker images buil
 <b>Known bugs:</b>
 - <s>Empty lines processing.</s>
 - <s>Filling data cells by data from previous iteration.</s>
-- Inefficient ugly SQL query with not quite desired result. Need to rework with joins using, but at the end after all necessary diploma stages.
+- <s>Inefficient ugly SQL query with not quite desired result. Need to rework with joins using, but at the end after all necessary diploma stages.</s> Just added another complete table. Result is still a bit undesirable.
 
 <b>TODO:</b>
 - <s>Fill 'ships_id' column with ships_id_list.</s>
 - <s>Rework script for separate person lines with each starship (not several ships in one person line).</s>
 - <s>Write query to display output.</s>
 - Maby split tasks of pulling data about ships and persons to different scripts. 
-- Clean out repo a bit.
-- Add flask support to display output.
+- <s>Clean out repo a bit.</s> I was reorganized hierarchy a bit.
+- <s>Add flask support to display output.</s>
 
 <b><i>Contents:</i></b>
 - <b>app_back</b> directory with backend app for deployment
