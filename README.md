@@ -3,9 +3,8 @@
 <b>Current status:</b><br><br>
 Application part. Web service ready.<br>
 Infrastructure part. Dockerfiles almost ready for deployment. Docker images are building successfully. Need to solve issue with passing environment variables to runtime. <br>
-Images builded and tested.<br>
+Images builded and tested.<br><br>
 ![Screenshot 2022-04-17 022850](https://user-images.githubusercontent.com/94368360/163694254-d47b2a73-ea20-4d97-86b5-c8a6be06194a.png)
-<br><br>
 
 <b>Known problems:</b>
 - <s>https://swapi.dev/ sometimes return 'ERROR 404' because of missing persons (i.e. https://swapi.dev/api/people/17) and ships (i.e. https://swapi.dev/api/starships/1/).</s>
