@@ -3,14 +3,17 @@
 Current downside of this solution is Subnets hardcoding.<br>
 Because of I consider database username and password as sensitive data, those data transferring as environment variables. In my case they storing in <b><i>secrets</i></b> file in repo but this file added to <b><i>.cvsignore</i></b> to prevent sensitive data leak. Content of this file is something like this (depends on OS):
 # for linux (bash)
-export TF_VAR_db_user="demo_user"<br>
-export TF_VAR_db_password="demo_password"
+export TF_VAR_db_user="test"<br>
+export TF_VAR_db_password="test"<br>
+export TF_VAR_db_name="test"<br>
+export db_host="localhost"<br>
 
 # for windows (powershell)
-$env:TF_VAR_db_user="demo_user"<br>
-$env:TF_VAR_db_password="demo_password"<br>
-<br>
-You can export those data as environment variables or you can type them manually while applying Terraform manifest.
+$env:TF_VAR_db_user="test"<br>
+$env:TF_VAR_db_password="test"<br>
+$env:TF_VAR_db_name="test"<br>
+$env:db_host="localhost"<br><br>
+You can export necessary variables as environment variables or you can type them manually while applying Terraform manifest.
 
 # Need to fix
 - <s>Security groups to prevent possible undesirable access.</s> RDS endpoint located inside local subnet and has no access outside as vice versa (checked).
