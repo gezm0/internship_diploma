@@ -73,7 +73,6 @@ resource "aws_eks_cluster" "diploma" {
   }
 
     depends_on = [
-    aws_db_instance.diploma_database,
     aws_iam_role_policy_attachment.diploma-AmazonEKSClusterPolicy
   ]
 }
