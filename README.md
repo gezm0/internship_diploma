@@ -2,7 +2,7 @@
 
 <b>Current status:</b><br><br>
 Application part. Web service ready.<br>
-Infrastructure part. Images builded and tested. Ready to start think about deployment to EKS. <br><br>
+Infrastructure part. Images builded and tested. Ready to start think about deployment to EKS. Successfully tested ECR registry creation/deletion with terraform, pushing and pulling images. <br><br>
 ![Screenshot 2022-04-17 022850](https://user-images.githubusercontent.com/94368360/163694254-d47b2a73-ea20-4d97-86b5-c8a6be06194a.png)
 
 <b>Known problems:</b>
@@ -18,7 +18,7 @@ Infrastructure part. Images builded and tested. Ready to start think about deplo
 - <s>Fill 'ships_id' column with ships_id_list.</s>
 - <s>Rework script for separate person lines with each starship (not several ships in one person line).</s>
 - <s>Write query to display output.</s>
-- Maby split tasks of pulling data about ships and persons to different scripts. 
+- <s>Maby split tasks of pulling data about ships and persons to different scripts.</s> Nope.
 - <s>Clean out repo a bit.</s> I was reorganized hierarchy a bit.
 - <s>Add flask support to display output.</s>
 
@@ -27,15 +27,8 @@ Infrastructure part. Images builded and tested. Ready to start think about deplo
 - <b>app_front</b> directory with frontend app for deployment
 - <b>app_infra</b> directory with service apps for deployment (for create and delete database schemas)
 - <b>aws_infrastructure</b> directory with Terraform manifests for AWS infrastructure deployment
+- <b>dev</b> directory with application development files
 - <b>k8s</b> directory with Kubernetes manifests for K8S infrastructure deployment
-- <i>db_create_tables.py</i> script for creating tables in database.
-- <i>db_drop_tables.py</i> script for deleting tables in database.
-- <i>people.json</i> json structure for 'people' reply.
-- <i>script_output.py</i> Script with query to display desired output.
-- <i>ships.json</i> json structure for 'starships' reply.
-- <i>test.py</i> script for testing new features and significant code change.
-- <i>work_with_data.py</i> main script for retrieving data from site and pushing them to database.
-- <i>work_with_data_new.py</i> Last version of main script for retrieving data from site and pushing them to database.
 # Variables:
 Through variables for AWS and K8S infrastructure:<br><br>
 <b>TF_VAR_db_user</b> for database user.<br>
