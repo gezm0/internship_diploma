@@ -5,9 +5,6 @@ import psycopg2
 import os
 from datetime import datetime
 
-now = datetime.now()
-date_time = now.strftime("%d-%m-%Y, %H:%M:%S")
-
 person_num = 1
 person_num_last = 85
 starship_num = 1
@@ -25,7 +22,7 @@ conn = psycopg2.connect(
 
 cursor = conn.cursor()
 
-print(f"Started at {date_time}")
+print(f"Started at {datetime.now()}")
 
 while person_num <= person_num_last:
     try:
@@ -51,7 +48,7 @@ while person_num <= person_num_last:
                 vars_persons = [person_name, person_gender, person_homeworld, ship_id]
                 cursor.execute(fill_table_persons_with_starships, vars_persons)
 
-                print(f"Person {person_name} (id {person_num}) with starship id {ship_id} inserted successfully at {date_time}")
+                print(f"Person {person_name} (id {person_num}) with starship id {ship_id} inserted successfully at {datetime.now()}")
 
         else:
             pass
@@ -62,7 +59,7 @@ while person_num <= person_num_last:
     person_num += 1
 
 conn.commit()
-print(f"Data to table 'persons_with_starships' are successfully commited at {date_time}")
+print(f"Data to table 'persons_with_starships' are successfully commited at {datetime.now()}")
 print("")
 
 while starship_num <= starship_num_last:
@@ -87,7 +84,7 @@ while starship_num <= starship_num_last:
             fill_table_starships = "INSERT INTO starships (name, model, manufacturer, cargo_capacity, ship_id) VALUES (%s, %s, %s, %s, %s)"
             vars_starships = [starship_name, starship_model, starship_manufacturer, starship_cargo_capacity, starship_num]
             cursor.execute(fill_table_starships, vars_starships)
-            print(f"Ship {starship_name} - {starship_model} with id {starship_num} inserted successfully at {date_time}")
+            print(f"Ship {starship_name} - {starship_model} with id {starship_num} inserted successfully at {datetime.now()}")
 
         else:
             pass
@@ -97,7 +94,7 @@ while starship_num <= starship_num_last:
     starship_num += 1
 
 conn.commit()
-print(f"Data to table 'starships' are successfully commited at {date_time}")
+print(f"Data to table 'starships' are successfully commited at {datetime.now()}")
 print("")
 
 persons_create_table = '''
@@ -109,9 +106,9 @@ persons_create_table = '''
     '''
 cursor.execute(persons_create_table)
 conn.commit()
-print(f"Table 'persons' was filled successfully at {date_time}")
+print(f"Table 'persons' was filled successfully at {datetime.now()}")
 
 if conn:
     cursor.close()
     conn.close()
-    print(f"PostgreSQL connection is closed at {date_time}")
+    print(f"PostgreSQL connection is closed at {datetime.now()}")

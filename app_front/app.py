@@ -3,6 +3,7 @@
 import os
 import psycopg2
 from flask import Flask, render_template
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -23,7 +24,7 @@ def index():
     persons = cur.fetchall()
     cur.close()
     conn.close()
-    return render_template('index.html', persons=persons)
+    return render_template('index.html', persons=persons, datetime=datetime.now())
 
 
 if __name__ == "__main__":
