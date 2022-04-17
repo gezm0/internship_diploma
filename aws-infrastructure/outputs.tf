@@ -11,5 +11,5 @@ output "database-address" {
 }
 
 output "registry-id" {
-  value = aws_ecr_repository.diploma.id
+  value = aws_ecr_repository.diploma.repository_url
 }
