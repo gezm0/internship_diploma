@@ -2,7 +2,7 @@
 
 <b>Current status:</b><br><br>
 Application part. Web service ready.<br>
-Infrastructure part. Dockerfiles almost ready for deployment. Docker images are building successfully. Need to solve issue with passing environment variables to runtime. <br>
+Infrastructure part. Docker images are building successfully. Ready to start think about deployment to EKS. <br>
 Images builded and tested.<br><br>
 ![Screenshot 2022-04-17 022850](https://user-images.githubusercontent.com/94368360/163694254-d47b2a73-ea20-4d97-86b5-c8a6be06194a.png)
 
