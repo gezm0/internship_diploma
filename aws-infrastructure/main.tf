@@ -113,13 +113,13 @@ resource "aws_eks_node_group" "diploma" {
   instance_types  = [ "t3.small" ]
 
   scaling_config {
-    desired_size = 4
+    desired_size = 3
     max_size     = 5
-    min_size     = 3
+    min_size     = 2
   }
 
   update_config {
-    max_unavailable = 2
+    max_unavailable = 1
   }
 
   depends_on = [
