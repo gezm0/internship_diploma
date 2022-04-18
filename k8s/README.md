@@ -9,9 +9,9 @@ There is the <b>app_secret.yaml</b> manifest with credentials, but because of se
 # How to use it
 Set environment variables as <a href="https://github.com/gezm0/internship_diploma/tree/main/aws-infrastructure">here</a>, for example.<br><br>
 Edit <b>app_secret.yaml</b> and <b>app_configmap.yaml</b> with you secrets and variables.<br><br>
-<b>kubectl.exe apply -f app_secret.yaml</b> # create secret in k8s<br>
-<b>kubectl.exe apply -f app_configmap.yaml</b> # create configmap in k8s<br>
-<b>kubectl.exe apply -f db_create.yaml</b> # job to create database schema<br>
-<b>kubectl.exe apply -f app_back.yaml</b> # job to fill database with data<br>
+<b>kubectl.exe apply -n dev -f app_secret.yaml</b> # create secret in k8s namespace <i>dev</i><br>
+<b>kubectl.exe apply -n dev -f app_configmap.yaml</b> # create configmap in k8s namespace <i>dev</i><br>
+<b>kubectl.exe apply -n dev -f db_create.yaml</b> # job to create database schema using namespace <i>dev</i><br>
+<b>kubectl.exe apply -n dev -f app_back.yaml</b> # job to fill database with data using namespace <i>dev</i><br>
 <b>kubectl.exe apply -n dev -f app_front.yaml</b> # deployment to start frontend in namespace <i>dev</i><br><br>
-<b>kubectl.exe apply -f db_drop.yaml</b> # if you want run job to drop database<br>
+<b>kubectl.exe apply -n dev -f db_drop.yaml</b> # if you want run job to drop database using namespace <i>dev</i><br>
