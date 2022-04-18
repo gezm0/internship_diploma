@@ -7,8 +7,8 @@
 <b>db_drop.yaml</b> manifest for deleting database schema job<br><br>
 There is the <b>app_secret.yaml</b> manifest with credentials, but because of security reasons it added to .gitignore.
 # How to use it
-Set environment variables as <a href="https://github.com/gezm0/internship_diploma/tree/main/aws-infrastructure">here</a>, for example.<br>
-Edit <b>app_secret.yaml</b> and <b>app_configmap.yaml</b> with you secrets and variables.<br>
+Set environment variables as <a href="https://github.com/gezm0/internship_diploma/tree/main/aws-infrastructure">here</a>, for example.<br><br>
+Edit <b>app_secret.yaml</b> and <b>app_configmap.yaml</b> with you secrets and variables.<br><br>
 <b>kubectl.exe apply -f app_secret.yaml</b> # create secret in k8s<br>
 <b>kubectl.exe apply -f app_configmap.yaml</b> # create configmap in k8s<br>
 <b>kubectl.exe apply -f db_create.yaml</b> # job to create database schema<br>
