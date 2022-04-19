@@ -1,7 +1,7 @@
 # Monitoring
 
-Deploy the Kubernetes dashboard<br>
-kubectl apply -f k8s-dashboard.yaml<br>
+Deploy the Kubernetes dashboard
+kubectl apply -f k8s-dashboard.yaml
 
 Create an eks-admin service account and cluster role binding<br>
 kubectl apply -f eks-admin-service-account.yaml<br>
@@ -14,3 +14,6 @@ kubectl proxy<br>
 
 Access something like<br>
 http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#!/login
+
+Detailed documentation:
+https://docs.aws.amazon.com/eks/latest/userguide/dashboard-tutorial.html
