@@ -2,8 +2,10 @@
 
 <b>Current status:</b><br><br>
 Application part. Web service ready.<br>
-Infrastructure part. Images builded and tested. Ready to start think about deployment to EKS. Successfully tested ECR creation/deletion with terraform, pushing and pulling images. <br><br>
-![Screenshot 2022-04-17 022850](https://user-images.githubusercontent.com/94368360/163694254-d47b2a73-ea20-4d97-86b5-c8a6be06194a.png)
+Infrastructure part. Manual deployment in AWS EKS infrastructure passed successfully.<br> 
+CI/CD part. Ready to start thinking about ci/cd.<br><br>
+![Screenshot 2022-04-18 152056](https://user-images.githubusercontent.com/94368360/163809652-6be85562-82f6-42cb-bd33-9ea1b7abb812.png)
+![Screenshot 2022-04-18 152240](https://user-images.githubusercontent.com/94368360/163809660-e50ec598-c9dc-45d5-8a7b-04d14dc053f1.png)
 
 <b>Known problems:</b>
 - <s>https://swapi.dev/ sometimes return 'ERROR 404' because of missing persons (i.e. https://swapi.dev/api/people/17) and ships (i.e. https://swapi.dev/api/starships/1/).</s>
