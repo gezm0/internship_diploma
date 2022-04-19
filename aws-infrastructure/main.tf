@@ -125,7 +125,7 @@ resource "aws_eks_node_group" "diploma" {
   depends_on = [
     aws_iam_role_policy_attachment.diploma-AmazonEKSWorkerNodePolicy,
     aws_iam_role_policy_attachment.diploma-AmazonEKS_CNI_Policy,
-    aws_iam_role_policy_attachment.diploma-AmazonEC2ContainerRegistryReadOnly,
+    aws_iam_role_policy_attachment.diploma-AmazonEC2ContainerRegistryReadOnly
   ]
 }
 
