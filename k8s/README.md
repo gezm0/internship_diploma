@@ -10,7 +10,7 @@ There is the <b>app_secret.yaml</b> manifest with credentials, but because of se
 # How to use it
 Set environment variables as <a href="https://github.com/gezm0/internship_diploma/tree/main/aws-infrastructure">here</a>, for example.<br><br>
 Edit <b>app_secret.yaml</b> and <b>app_configmap.yaml</b> with you secrets and variables.<br><br>
-<b>kubectl.exe apply -f metrics-server.yaml</b> # install metrics server <i>dev</i><br>
+<b>kubectl.exe apply -f metrics-server.yaml</b> # install metrics server<br>
 <b>kubectl.exe apply -n dev -f app_secret.yaml</b> # create secret in k8s namespace <i>dev</i><br>
 <b>kubectl.exe apply -n dev -f app_configmap.yaml</b> # create configmap in k8s namespace <i>dev</i><br>
 <b>kubectl.exe apply -n dev -f db_create.yaml</b> # job to create database schema using namespace <i>dev</i><br>
