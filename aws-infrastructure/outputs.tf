@@ -10,6 +10,6 @@ output "db_host" {
   value = aws_db_instance.diploma_database.address
 }
 
-output "registry_url" {
-  value = aws_ecr_repository.diploma.repository_url
-}
+#output "registry_url" {
+#  value = aws_ecr_repository.diploma.repository_url
+#}

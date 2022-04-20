@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: app-front
-        image: 422613489304.dkr.ecr.eu-west-2.amazonaws.com/diploma_registry:app_front.v2
+        image: registry.gitlab.com/gezm0/internship_diploma:app_front
         env:
           - name: TF_VAR_db_user
             valueFrom:

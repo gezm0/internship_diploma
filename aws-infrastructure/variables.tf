@@ -22,8 +22,8 @@ variable "cluster_name" {
     type    = string
 }
 
-variable "ecr_repo_name" {
-    description = "ECR repository name"
-    default = "diploma_registry"
-    type    = string
-}
+#variable "ecr_repo_name" {
+#    description = "Repository name"
+#    default = "diploma_registry"
+#    type    = string
+#}

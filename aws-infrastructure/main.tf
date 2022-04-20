@@ -163,11 +163,11 @@ resource "aws_iam_role_policy_attachment" "diploma-AmazonEC2ContainerRegistryRea
 
 ### ECR creation ###
 
-resource "aws_ecr_repository" "diploma" {
-  name                 = var.ecr_repo_name
-  image_tag_mutability = "MUTABLE"
-
-  image_scanning_configuration {
-    scan_on_push = true
-  }
-}
+#resource "aws_ecr_repository" "diploma" {
+#  name                 = var.ecr_repo_name
+#  image_tag_mutability = "MUTABLE"
+#
+# image_scanning_configuration {
+#    scan_on_push = true
+#  }
+#}
