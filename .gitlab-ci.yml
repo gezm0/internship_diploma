@@ -1,0 +1,30 @@
+image: docker:latest
+services:
+  - docker:dind
+
+stages:
+  - build
+  - release
+
+Build infra apps:
+  stage: build
+  script:
+    - cd app_infra
+    - docker build -f Dockerfile_db_create_tables -t $CI_REGISTRY_IMAGE:db_create .
+    - docker build -f Dockerfile_db_drop_tables -t $CI_REGISTRY_IMAGE:db_drop .
+
+Build application:
+  stage: build
+  script:
+    - docker build -t $CI_REGISTRY_IMAGE:app_back app_back
+    - docker build -t $CI_REGISTRY_IMAGE:app_front app_front
+
+Release:
+  stage: release
+  script:
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
+    - docker push $CI_REGISTRY_IMAGE:db_create
+    - docker push $CI_REGISTRY_IMAGE:db_drop
+    - docker push $CI_REGISTRY_IMAGE:app_back
+    - docker push $CI_REGISTRY_IMAGE:app_front
+  
