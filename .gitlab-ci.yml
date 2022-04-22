@@ -25,21 +25,20 @@ Build infra apps:
   stage: build
   script:
     - cd app_infra
-    - docker build -f Dockerfile_db_create_tables -t $CI_REGISTRY_IMAGE:db_create .
-    - docker build -f Dockerfile_db_drop_tables -t $CI_REGISTRY_IMAGE:db_drop .
+    - docker build -f Dockerfile_db_create_tables -t $CI_REGISTRY_IMAGE:db_create_$CI_COMMIT_SHORT_SHA .
+    - docker build -f Dockerfile_db_drop_tables -t $CI_REGISTRY_IMAGE:db_drop_$CI_COMMIT_SHORT_SHA .
 
-Build apps:
+Build application:
   stage: build
   script:
-    - docker build -t $CI_REGISTRY_IMAGE:app_back app_back
-    - docker build -t $CI_REGISTRY_IMAGE:app_front app_front
+    - docker build -t $CI_REGISTRY_IMAGE:app_back_$CI_COMMIT_SHORT_SHA app_back
+    - docker build -t $CI_REGISTRY_IMAGE:app_front_$CI_COMMIT_SHORT_SHA app_front
 
 Release:
   stage: release
   script:
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
-    - docker push $CI_REGISTRY_IMAGE:db_create
-    - docker push $CI_REGISTRY_IMAGE:db_drop
-    - docker push $CI_REGISTRY_IMAGE:app_back
-    - docker push $CI_REGISTRY_IMAGE:app_front
-  
+    - docker push $CI_REGISTRY_IMAGE:db_create_$CI_COMMIT_SHORT_SHA
+    - docker push $CI_REGISTRY_IMAGE:db_drop_$CI_COMMIT_SHORT_SHA
+    - docker push $CI_REGISTRY_IMAGE:app_back_$CI_COMMIT_SHORT_SHA
+    - docker push $CI_REGISTRY_IMAGE:app_front_$CI_COMMIT_SHORT_SHA
