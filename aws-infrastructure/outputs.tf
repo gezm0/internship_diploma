@@ -6,10 +6,10 @@ output "kubeconfig_certificate_authority_data" {
   value = aws_eks_cluster.diploma.certificate_authority[0].data
 }
 
-output "db_host" {
-  value = aws_db_instance.diploma_database.address
+output "db_host_dev" {
+  value = aws_db_instance.diploma_database_dev.address
 }
 
-#output "registry_url" {
-#  value = aws_ecr_repository.diploma.repository_url
-#}
+output "db_host_prod" {
+  value = aws_db_instance.diploma_database_prod.address
+}

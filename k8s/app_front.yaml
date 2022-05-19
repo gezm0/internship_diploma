@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: app-front
+  namespace: ${K8S_NAMESPACE}
 spec:
   replicas: 3
   strategy:
@@ -19,44 +20,18 @@ spec:
     spec:
       containers:
       - name: app-front
-        image: registry.gitlab.com/gezm0/internship_diploma:app_front
-        env:
-          - name: TF_VAR_db_user
-            valueFrom:
-              secretKeyRef:
-                name: app-secret
-                key: db_user
-          - name: TF_VAR_db_password
-            valueFrom:
-              secretKeyRef:
-                name: app-secret
-                key: db_password
-          - name: TF_VAR_db_name
-            valueFrom:
-              secretKeyRef:
-                name: app-secret
-                key: db_name
-          - name: db_host
-            valueFrom:
-              configMapKeyRef:
-                name: app-configmap
-                key: db_host
+        image: ${CI_REGISTRY_IMAGE}:app_front.${OWN_TAG}
+        envFrom:
+          - configMapRef:
+              name: app-configmap
+          - secretRef:
+              name: app-secret
         resources:
-          limits:
+          requests:
             memory: "64Mi"
             cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
         ports:
         - containerPort: 5000
-
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: sw-app-service
-spec:
-  type: LoadBalancer
-  selector:
-    app: app-front
-  ports:
-  - port: 80
-    targetPort: 5000

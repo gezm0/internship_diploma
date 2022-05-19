@@ -2,33 +2,19 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: db-create
+  namespace: ${K8S_NAMESPACE}
 spec:
-  ttlSecondsAfterFinished: 600
+  ttlSecondsAfterFinished: 120
+  backoffLimit: 1
   template:
     spec:
       containers:
       - name: db-create
-        image: registry.gitlab.com/gezm0/internship_diploma:db_create
+        image: ${CI_REGISTRY_IMAGE}:db_create.${OWN_TAG}
         command: ["python",  "db_create_tables.py"]
-        env:
-          - name: TF_VAR_db_user
-            valueFrom:
-              secretKeyRef:
-                name: app-secret
-                key: db_user
-          - name: TF_VAR_db_password
-            valueFrom:
-              secretKeyRef:
-                name: app-secret
-                key: db_password
-          - name: TF_VAR_db_name
-            valueFrom:
-              secretKeyRef:
-                name: app-secret
-                key: db_name
-          - name: db_host
-            valueFrom:
-              configMapKeyRef:
-                name: app-configmap
-                key: db_host
+        envFrom:
+          - configMapRef:
+              name: app-configmap
+          - secretRef:
+              name: app-secret
       restartPolicy: Never

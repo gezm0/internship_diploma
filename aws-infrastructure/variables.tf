@@ -21,9 +21,3 @@ variable "cluster_name" {
     default = "eks-cluster-diploma"
     type    = string
 }
-
-#variable "ecr_repo_name" {
-#    description = "Repository name"
-#    default = "diploma_registry"
-#    type    = string
-#}

@@ -1,6 +1,7 @@
 #!/usr/local/bin/python
 
 import psycopg2
+import requests
 import os
 from datetime import datetime
 
@@ -13,10 +14,10 @@ conn = psycopg2.connect(
 
 cursor = conn.cursor()
 
-list_tables = ['starships', 'persons_with_starships', 'persons']
+list_tables = ['starships', 'persons_with_starships']
 for table_to_drop in list_tables:
 
-  drop_table = (f"DROP table {table_to_drop};")
+  drop_table = (f"DROP TABLE IF EXISTS {table_to_drop};")
   print(f"Table {table_to_drop} deleted successfully at {datetime.now()}")
   cursor.execute(drop_table)
   conn.commit()

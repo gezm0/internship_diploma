@@ -1,6 +1,7 @@
 #!/usr/local/bin/python
 
 import psycopg2
+import requests
 import os
 from psycopg2 import Error
 from datetime import datetime
@@ -17,24 +18,17 @@ try:
 
     cursor = conn.cursor()
     
-    create_table_starships = ('''CREATE TABLE starships (id SERIAL PRIMARY KEY NOT NULL, name VARCHAR (255) NOT NULL, model 
+    create_table_starships = ('''CREATE TABLE IF NOT EXISTS starships (id SERIAL PRIMARY KEY NOT NULL, name VARCHAR (255) NOT NULL, model 
                             VARCHAR (255), manufacturer VARCHAR (255), cargo_capacity bigint, ship_id INT);''')
 
     cursor.execute(create_table_starships)
     print(f"Table 'starships' created successfully at {datetime.now()}")
 
-    create_table_persons_with_starships = ('''CREATE TABLE persons_with_starships (id SERIAL PRIMARY KEY NOT NULL, 
+    create_table_persons_with_starships = ('''CREATE TABLE IF NOT EXISTS persons_with_starships (id SERIAL PRIMARY KEY NOT NULL, 
                             name VARCHAR (255) NOT NULL, gender VARCHAR (50), homeworld VARCHAR (100), ships_id INT);''')
 
     cursor.execute(create_table_persons_with_starships)
     print(f"Table 'persons_with_starships' created successfully at {datetime.now()}")
-
-    create_table_persons = ('''CREATE TABLE persons (id SERIAL PRIMARY KEY NOT NULL, 
-                            name VARCHAR (255) NOT NULL, gender VARCHAR (50), homeworld VARCHAR (100), ship_model 
-                            VARCHAR (255), ship_manufacturer VARCHAR (255), cargo_capacity bigint);''')
-
-    cursor.execute(create_table_persons)
-    print(f"Table 'persons' created successfully at {datetime.now()}")
 
     conn.commit()
 

@@ -3,7 +3,7 @@
 <b>Current status:</b><br><br>
 Application part. Web service ready.<br>
 Infrastructure part. Manual deployment in AWS EKS infrastructure passed successfully.<br> 
-CI/CD part. Ready to start thinking about ci/cd.<br><br>
+CI/CD part. Pipeline ready.<br><br>
 ![Screenshot 2022-04-18 152056](https://user-images.githubusercontent.com/94368360/163809652-6be85562-82f6-42cb-bd33-9ea1b7abb812.png)
 ![Screenshot 2022-04-18 152240](https://user-images.githubusercontent.com/94368360/163809660-e50ec598-c9dc-45d5-8a7b-04d14dc053f1.png)
 
